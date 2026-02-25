@@ -73,7 +73,7 @@
         - the course has tasks AND
         - all tasks are done
 
-   2️ Show “No tasks yet.” ONLY when the course has NO tasks:
+   2️ Show “No tasks yet.” ONLY when a course has zero tasks:
         {course.tasks.length === 0 && <p className="muted">No tasks yet.</p>}
 
    TaskItem.jsx
@@ -138,13 +138,14 @@ export default function App() {
       </header>
 
       <section className="grid">
-        {/* TODO (TASK 1): Render all courses using courses.map(...)
-      For each course render <CourseCard /> and pass:
-        - key={course.id}
-        - course={course}
-        - index={idx}
-        - onMutateCourse={mutateCourseByIndex}
-  */}
+        {courses.map((course,idx) => (
+          <CourseCard
+            key= {course.id}
+            course= {course}
+            index ={idx}
+            onMutateCourse ={mutateCourseByIndex}
+          />
+        ))}
       </section>
     </main>
   );
